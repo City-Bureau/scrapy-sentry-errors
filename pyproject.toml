@@ -1,0 +1,34 @@
+[project]
+name = "city-scrapers-sentry"
+version = "0.1"
+description = "Scrapy extension that logs errors to Sentry"
+authors = [
+    {name = "Dan Simmons-Ritchie", email = "daniel@citybureau.org"}
+]
+dependencies = [
+    'scrapy>=2.0', 
+    'raven>=6.3.0', 
+    'six>=1.11.0'
+]
+requires-python = ">=3.5"
+readme = "README.md"
+license = {text = "BSD"}
+classifiers=[
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.5',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Environment :: Console',
+    'Topic :: Software Development :: Libraries :: Application Frameworks',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Internet :: WWW/HTTP',
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+package-type = "library"
