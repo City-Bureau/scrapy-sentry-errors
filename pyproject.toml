@@ -10,7 +10,7 @@ dependencies = [
     'raven>=6.3.0', 
     'six>=1.11.0'
 ]
-requires-python = ">=3.5"
+requires-python = ">=3.7"
 readme = "README.md"
 license = {text = "BSD"}
 classifiers=[
