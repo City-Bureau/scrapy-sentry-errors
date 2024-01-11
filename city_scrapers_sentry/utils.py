@@ -7,7 +7,6 @@ import pkg_resources
 
 from twisted.python import log
 
-# from scrapy.conf import settings
 from scrapy.utils.project import get_project_settings
 from scrapy.http import Headers  # noqa
 from scrapy.responsetypes import responsetypes
