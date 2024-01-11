@@ -3,7 +3,7 @@ name = "city-scrapers-sentry"
 version = "1.0.0-alpha.1"
 description = "Scrapy extension that logs errors to Sentry"
 authors = [
-    {name = "Dan Simmons-Ritchie", email = "daniel@citybureau.org"}
+    {name = "City Bureau", email = "documenters@citybureau.org"}
 ]
 dependencies = [
     'scrapy>=2.0', 
@@ -15,7 +15,7 @@ readme = "README.md"
 license = {text = "BSD"}
 classifiers=[
     'Programming Language :: Python',
-    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3',
     'License :: OSI Approved :: BSD License',
     'Operating System :: OS Independent',
     'Development Status :: 3 - Alpha,
