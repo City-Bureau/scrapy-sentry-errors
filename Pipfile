@@ -7,8 +7,3 @@ name = "pypi"
 scrapy = ">=2.0"
 raven = ">=6.3.0"
 six = ">=1.11.0"
-
-[dev-packages]
-
-[requires]
-python_version = "3.5"
