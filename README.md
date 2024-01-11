@@ -16,13 +16,13 @@ Installation
 ------------
 
 ```
-pip install scrapy-sentry
+pip install city-scrapers-sentry
 ```
 
 Setup
 -----
 
-Add `SENTRY_DSN` and `scrapy_sentry.extensions.Errors` extension to your Scrapy Project `settings.py`.
+Add `SENTRY_DSN` and `city_scrapers_sentry.extensions.Errors` extension to your Scrapy Project `settings.py`.
 
 Example:
 
@@ -30,6 +30,6 @@ Example:
 # sentry dsn
 SENTRY_DSN = 'http://public:secret@example.com/1'
 EXTENSIONS = {
-    "scrapy_sentry.extensions.Errors": 10,
+    "city_scrapers_sentry.extensions.Errors": 10,
 }
 ```
