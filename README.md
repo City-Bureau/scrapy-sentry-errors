@@ -1,12 +1,11 @@
-scrapy-sentry
+city-scrapers-sentry
 =============
 
-Logs Scrapy exceptions into Sentry
+A Scrapy extension that logs spider errors to Sentry.
 
-A python library that glues [Sentry](http://www.getsentry.com) with [Scrapy](http://www.scrapy.org).
-Any spider errors will get pushed to Sentry. Please note that currently, exceptions anywhere else (e.g. the Scrapy pipeline)
-are not being reported to Sentry.
+This project began as a fork of [scrapy-sentry](https://github.com/llonchj/scrapy-sentry) which was originally developed by Jordi Llonch. We are grateful for their work and contributions.
 
+Note: while this extension captures errors from Scrapy spiders, it does not capture errors elsewhere in Scrapy's operation (e.g. the Scrapy pipeline).
 
 Requisites: 
 -----------
@@ -31,11 +30,6 @@ Example:
   # sentry dsn
   SENTRY_DSN = 'http://public:secret@example.com/1'
   EXTENSIONS = {
-      "scrapy_sentry.extensions.Errors":10,
+      "scrapy_sentry.extensions.Errors": 10,
   }
-
   ```
-
-Supported versions
-------------------
-This package works with Python 2.7, 3.4 and 3.5. It has been tested with Scrapy up to version 1.2.1.  
