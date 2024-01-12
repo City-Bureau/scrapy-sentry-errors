@@ -14,3 +14,4 @@ python_version = "3.9"
 city-scrapers-sentry = {file = ".", editable = true}
 build = "*"
 twine = "*"
+black = "*"
