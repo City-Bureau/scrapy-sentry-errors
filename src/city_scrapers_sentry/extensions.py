@@ -46,7 +46,7 @@ class Errors(object):
         }
         msg = self.client.captureMessage(
             message="[{}] {}".format(spider.name, repr(failure.value)), extra=extra
-        )  # , stack=failure.stack)
+        )
 
         ident = self.client.get_ident(msg)
 
