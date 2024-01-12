@@ -21,32 +21,32 @@ class Errors(object):
     def from_crawler(cls, crawler, client=None, dsn=None):
         release = crawler.settings.get("RELEASE", get_release(crawler))
 
-        dsn = os.environ.get(
-            "SENTRY_DSN", crawler.settings.get("SENTRY_DSN", None))
+        dsn = os.environ.get("SENTRY_DSN", crawler.settings.get("SENTRY_DSN", None))
         if dsn is None:
-            raise NotConfigured('No SENTRY_DSN configured')
+            raise NotConfigured("No SENTRY_DSN configured")
         o = cls(dsn=dsn, release=release)
         crawler.signals.connect(o.spider_error, signal=signals.spider_error)
         return o
 
-    def spider_error(self, failure, response, spider,
-                     signal=None, sender=None, *args, **kwargs):
+    def spider_error(
+        self, failure, response, spider, signal=None, sender=None, *args, **kwargs
+    ):
         traceback = StringIO()
         failure.printTraceback(file=traceback)
 
         res_dict = response_to_dict(response, spider, include_request=True)
 
         extra = {
-            'sender': sender,
-            'spider': spider.name,
-            'signal': signal,
-            'failure': failure,
-            'response': res_dict,
-            'traceback': "\n".join(traceback.getvalue().split("\n")[-5:]),
+            "sender": sender,
+            "spider": spider.name,
+            "signal": signal,
+            "failure": failure,
+            "response": res_dict,
+            "traceback": "\n".join(traceback.getvalue().split("\n")[-5:]),
         }
         msg = self.client.captureMessage(
-            message=u"[{}] {}".format(spider.name, repr(failure.value)),
-            extra=extra)  # , stack=failure.stack)
+            message="[{}] {}".format(spider.name, repr(failure.value)), extra=extra
+        )  # , stack=failure.stack)
 
         ident = self.client.get_ident(msg)
 

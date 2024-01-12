@@ -20,10 +20,14 @@ SENTRY_DSN = os.environ.get("SENTRY_DSN", None)
 
 settings = get_project_settings()
 
+
 def get_client(dsn=None, **options):
     """gets a scrapy client"""
-    return Client(dsn or settings.get("SENTRY_DSN", SENTRY_DSN),
-                  transport=RequestsHTTPTransport, **options)
+    return Client(
+        dsn or settings.get("SENTRY_DSN", SENTRY_DSN),
+        transport=RequestsHTTPTransport,
+        **options,
+    )
 
 
 def get_release(crawler):
@@ -54,14 +58,14 @@ def init(dsn=None):
 def response_to_dict(response, spider, include_request=True, **kwargs):
     """Returns a dict based on a response from a spider"""
     d = {
-        'time': time.time(),
-        'status': response.status,
-        'url': response.url,
-        'headers': dict(response.headers),
-        'body': response.body,
+        "time": time.time(),
+        "status": response.status,
+        "url": response.url,
+        "headers": dict(response.headers),
+        "body": response.body,
     }
     if include_request:
-        d['request'] = response.request.to_dict(spider=spider)
+        d["request"] = response.request.to_dict(spider=spider)
     return d
 
 
@@ -69,8 +73,9 @@ def response_from_dict(response, spider=None, **kwargs):
     """Returns a dict based on a response from a spider"""
     url = response.get("url")
     status = response.get("status")
-    headers = Headers([(x, list(map(str, y))) for x, y in
-                       response.get("headers").items()])
+    headers = Headers(
+        [(x, list(map(str, y))) for x, y in response.get("headers").items()]
+    )
     body = response.get("body")
 
     respcls = responsetypes.from_args(headers=headers, url=url)
