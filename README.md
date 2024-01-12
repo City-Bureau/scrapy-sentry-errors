@@ -54,7 +54,7 @@ pipenv sync --dev
 cd example_project
 ```
 
-5. Simulate a failed spider run. If properly configured, the spider will log an error to your Sentry account:
+5. Simulate a failed spider run. The spider will log an error to your Sentry account:
 ```
 scrapy crawl example
 ```
