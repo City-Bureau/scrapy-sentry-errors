@@ -11,5 +11,6 @@ raven = ">=6.3.0"
 python_version = "3.9"
 
 [dev-packages]
+city-scrapers-sentry = {file = ".", editable = true}
 build = "*"
 twine = "*"
