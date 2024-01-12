@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 scrapy = ">=2.5"
 raven = ">=6.3.0"
+sentry-sdk = "*"
 
 [requires]
 python_version = "3.9"

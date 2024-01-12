@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "807523766997a21bf33269b48909d8fda6df05f270202054ad501ffcb3d67ba4"
+            "sha256": "0cdb7160e7dbf775372c5067f80a30ada2ac8c8637efc9b91ecf367d63e87246"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -479,6 +479,14 @@
             "markers": "python_version >= '3.8'",
             "version": "==2.11.0"
         },
+        "sentry-sdk": {
+            "hashes": [
+                "sha256:24c83b0b41c887d33328a9166f5950dc37ad58f01c9f2fbff6b87a6f1094170c",
+                "sha256:acaf597b30258fc7663063b291aa99e58f3096e91fe1e6634f4b79f9c1943e8e"
+            ],
+            "index": "pypi",
+            "version": "==1.39.2"
+        },
         "service-identity": {
             "hashes": [
                 "sha256:87415a691d52fcad954a500cb81f424d0273f8e7e3ee7d766128f4575080f383",
@@ -532,7 +540,7 @@
                 "sha256:55901e917a5896a349ff771be919f8bd99aff50b79fe58fec595eb37bbc56bb3",
                 "sha256:df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_version >= '3.6'",
             "version": "==2.1.0"
         },
         "w3lib": {
@@ -896,7 +904,7 @@
                 "sha256:4805911c3a4ec7c3966410053e9ec6a1fecd629117df5adee56dfc9432a1081e",
                 "sha256:f238736bb06590ae52ac1fab06a3a9ef1d8dce2b7a35b5ab329371d6c8f5d2cc"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version >= '3.8'",
             "version": "==7.0.1"
         },
         "incremental": {
@@ -1328,7 +1336,7 @@
                 "sha256:55901e917a5896a349ff771be919f8bd99aff50b79fe58fec595eb37bbc56bb3",
                 "sha256:df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_version >= '3.6'",
             "version": "==2.1.0"
         },
         "w3lib": {
