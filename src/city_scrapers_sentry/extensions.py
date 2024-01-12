@@ -3,16 +3,12 @@ Send signals to Sentry
 
 Use SENTRY_DSN setting to enable sending information
 """
-from __future__ import absolute_import, unicode_literals
-
 import os
 import logging
+from io import StringIO
 
 from scrapy import signals
 from scrapy.exceptions import NotConfigured
-
-from six import StringIO
-
 
 from .utils import get_client, get_release, response_to_dict
 
