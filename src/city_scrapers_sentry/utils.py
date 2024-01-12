@@ -7,10 +7,8 @@ import pkg_resources
 
 from twisted.python import log
 
-# from scrapy.conf import settings
 from scrapy.utils.project import get_project_settings
-from scrapy.http import Request, Headers  # noqa
-from scrapy.utils.reqser import request_to_dict, request_from_dict  # noqa
+from scrapy.http import Headers  # noqa
 from scrapy.responsetypes import responsetypes
 
 from raven import Client
@@ -63,7 +61,7 @@ def response_to_dict(response, spider, include_request=True, **kwargs):
         'body': response.body,
     }
     if include_request:
-        d['request'] = request_to_dict(response.request, spider)
+        d['request'] = response.request.to_dict(spider=spider)
     return d
 
 

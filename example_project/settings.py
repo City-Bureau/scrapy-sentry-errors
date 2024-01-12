@@ -22,5 +22,5 @@ if os.environ.get("SENTRY_DSN", None) is None:
 SENTRY_DSN = os.environ["SENTRY_DSN"]  # << set your sentry_dsn here >>
 
 EXTENSIONS = {
-    'scrapy_sentry.extensions.Errors': 10,
+    'city_scrapers_sentry.extensions.Errors': 10,
 }
