@@ -44,10 +44,11 @@ Development
 ```
 SENTRY_DSN=<your-sentry-dsn>
 ```
-3. Activate pipenv's virtual environment and install dependencies. Your environment variables will be loaded from the .env file:
+3. Run the following command from the project root to activate pipenv's virtual environment and install project dependencies:
 ```
 pipenv sync --dev
 ```
+When activated, pipenv should load your SENTRY_DSN env var from the .env file.
 
 4. Enter the example_project directory:
 ```
