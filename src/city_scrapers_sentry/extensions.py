@@ -1,8 +1,3 @@
-"""
-Send signals to Sentry
-
-Use SENTRY_DSN setting to enable sending information
-"""
 import os
 import logging
 from io import StringIO
