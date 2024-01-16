@@ -9,7 +9,7 @@ from .utils import get_client, get_release, response_to_dict
 
 
 class Errors(object):
-    def __init__(self, dsn=None, client=None, **kwargs):
+    def __init__(self, dsn=None, **kwargs):
         self.client = get_client(dsn, **kwargs)  # Initialize Sentry SDK
 
     @classmethod
