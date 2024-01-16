@@ -4,9 +4,6 @@ import inspect
 import pkg_resources
 
 from scrapy.utils.project import get_project_settings
-from scrapy.http import Headers  # noqa
-from scrapy.responsetypes import responsetypes
-
 import sentry_sdk  # New import for Sentry SDK
 
 settings = get_project_settings()
@@ -44,17 +41,3 @@ def response_to_dict(response, spider, include_request=True, **kwargs):
     if include_request:
         d["request"] = response.request.to_dict(spider=spider)
     return d
-
-
-def response_from_dict(response, spider=None, **kwargs):
-    """Returns a dict based on a response from a spider"""
-    url = response.get("url")
-    status = response.get("status")
-    headers = Headers(
-        [(x, list(map(str, y))) for x, y in response.get("headers").items()]
-    )
-    body = response.get("body")
-
-    respcls = responsetypes.from_args(headers=headers, url=url)
-    response = respcls(url=url, headers=headers, status=status, body=body)
-    return response
