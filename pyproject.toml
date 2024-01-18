@@ -1,6 +1,6 @@
 [project]
 name = "city-scrapers-sentry"
-version = "1.0.0-alpha.3"
+version = "1.0.0-alpha.4"
 description = "Scrapy extension that logs errors to Sentry"
 authors = [
     {name = "City Bureau", email = "documenters@citybureau.org"}
