@@ -21,6 +21,9 @@ jobs:
       run: |
         pip install pipenv
         pipenv install --dev
+    - name: Check code formatting with black
+      run: |
+        pipenv run black --check .
     - name: Run pytest
       run: |
         pipenv run pytest
