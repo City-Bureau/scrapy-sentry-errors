@@ -4,7 +4,8 @@ from io import StringIO
 from scrapy import signals
 from scrapy.exceptions import NotConfigured
 
-import sentry_sdk 
+import sentry_sdk
+
 
 class Errors(object):
     def __init__(self, dsn=None, **kwargs):
@@ -28,4 +29,3 @@ class Errors(object):
         failure.printTraceback(file=traceback)
         self.client.capture_exception(failure.value)
         logging.log(logging.WARNING, "Sentry Exception captured")
-

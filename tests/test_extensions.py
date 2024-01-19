@@ -3,22 +3,26 @@ import pytest
 from scrapy.exceptions import NotConfigured
 from src.city_scrapers_sentry.extensions import Errors
 
+
 @pytest.fixture
 def crawler_mock():
     crawler = MagicMock()
-    crawler.settings = {'SENTRY_DSN': "https://public@sentry.example.com/1"}
+    crawler.settings = {"SENTRY_DSN": "https://public@sentry.example.com/1"}
     return crawler
+
 
 def test_initialization_with_valid_dsn(crawler_mock):
     extension = Errors.from_crawler(crawler_mock)
     assert extension.client is not None
 
+
 def test_initialization_fails_without_dsn(crawler_mock):
-    crawler_mock.settings = {'SENTRY_DSN': None}
+    crawler_mock.settings = {"SENTRY_DSN": None}
     with pytest.raises(NotConfigured):
         Errors.from_crawler(crawler_mock)
 
-@patch('src.city_scrapers_sentry.extensions.sentry_sdk')
+
+@patch("src.city_scrapers_sentry.extensions.sentry_sdk")
 def test_error_capturing_on_spider_error(mock_sentry_sdk, crawler_mock):
     # Initialize the extension with mocked crawler
     extension = Errors.from_crawler(crawler_mock)
