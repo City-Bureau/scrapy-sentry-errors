@@ -15,3 +15,8 @@ city-scrapers-sentry = {file = ".", editable = true}
 build = "*"
 twine = "*"
 black = "*"
+
+[scripts]
+black = "black ."
+build = "sh scripts/build.sh"
+deploy = "sh scripts/deploy.sh"
