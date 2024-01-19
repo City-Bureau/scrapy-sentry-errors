@@ -9,7 +9,6 @@ sentry-sdk = ">=1.0"
 pytest = "*"
 
 [dev-packages]
-city-scrapers-sentry = {file = ".", editable = true}
 build = "*"
 twine = "*"
 black = "*"
