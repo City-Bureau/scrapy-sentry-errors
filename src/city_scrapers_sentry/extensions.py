@@ -5,7 +5,7 @@ from io import StringIO
 from scrapy import signals
 from scrapy.exceptions import NotConfigured
 
-from .utils import get_client, get_release, response_to_dict
+from .utils import get_client, get_release
 
 
 class Errors(object):
@@ -23,27 +23,9 @@ class Errors(object):
         crawler.signals.connect(extension.spider_error, signal=signals.spider_error)
         return extension
 
-    def spider_error(
-        self, failure, response, spider, signal=None, sender=None, *args, **kwargs
-    ):
+    def spider_error(self, failure):
         traceback = StringIO()
         failure.printTraceback(file=traceback)
-
-        res_dict = response_to_dict(response, spider, include_request=True)
-
-        extra = {
-            "sender": sender,
-            "signal": signal,
-            "failure": failure,
-            "response": res_dict,
-            "traceback": "\n".join(traceback.getvalue().split("\n")[-5:]),
-        }
-        
-        with self.client.push_scope() as scope:
-            for key, value in extra.items():
-                scope.set_tag('spider', spider.name)
-                scope.set_extra(key, value)
-            self.client.capture_exception(failure.value)
-
+        self.client.capture_exception(failure.value)
         logging.log(logging.WARNING, "Sentry Exception captured")
 

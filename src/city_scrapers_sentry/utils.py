@@ -1,10 +1,9 @@
 import os
-import time
 import inspect
 import pkg_resources
 
 from scrapy.utils.project import get_project_settings
-import sentry_sdk  # New import for Sentry SDK
+import sentry_sdk 
 
 settings = get_project_settings()
 
@@ -27,17 +26,3 @@ def get_release(crawler):
         return pkg_resources.get_distribution(pkg).version
     except Exception:
         return None
-
-
-def response_to_dict(response, spider, include_request=True, **kwargs):
-    """Returns a dict based on a response from a spider"""
-    d = {
-        "time": time.time(),
-        "status": response.status,
-        "url": response.url,
-        "headers": dict(response.headers),
-        "body": response.body,
-    }
-    if include_request:
-        d["request"] = response.request.to_dict(spider=spider)
-    return d
