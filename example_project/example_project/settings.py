@@ -1,4 +1,5 @@
 import os
+
 # Scrapy settings for example_project project
 #
 # For simplicity, this file contains only settings considered important or
@@ -12,14 +13,16 @@ BOT_NAME = "example_project"
 
 if not os.environ.get("SENTRY_DSN"):
     import sys
-    sys.stderr.write("Please define SENTRY_DSN in your environment "
-                     "to run this example_project")
+
+    sys.stderr.write(
+        "Please define SENTRY_DSN in your environment " "to run this example_project"
+    )
     exit(1)
 
 
 SENTRY_DSN = os.environ["SENTRY_DSN"]
 EXTENSIONS = {
-    'city_scrapers_sentry.extensions.Errors': 10,
+    "city_scrapers_sentry.extensions.Errors": 10,
 }
 
 SPIDER_MODULES = ["example_project.spiders"]
