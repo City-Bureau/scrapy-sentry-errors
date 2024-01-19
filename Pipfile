@@ -12,6 +12,7 @@ build = "*"
 twine = "*"
 black = "*"
 pytest = "*"
+tomli = "*"
 
 [scripts]
 black = "black ."
