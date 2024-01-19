@@ -8,9 +8,6 @@ scrapy = ">=2.5"
 sentry-sdk = ">=1.0"
 pytest = "*"
 
-[requires]
-python_version = ">=3.8"
-
 [dev-packages]
 city-scrapers-sentry = {file = ".", editable = true}
 build = "*"
