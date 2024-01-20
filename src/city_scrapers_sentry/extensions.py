@@ -8,15 +8,40 @@ import sentry_sdk
 
 
 class Errors(object):
+    """Handles error reporting and capturing exceptions using Sentry."""
+
     def __init__(self, dsn=None, **kwargs):
         self.client = self.get_client(dsn, **kwargs)
 
     def get_client(self, dsn, **options):
+        """
+        Get the Sentry client.
+
+        Args:
+            dsn (str): The Sentry DSN.
+            **options: Additional options to pass to the Sentry SDK.
+
+        Returns:
+            sentry_sdk: The initialized Sentry client.
+        """
         sentry_sdk.init(dsn=dsn, **options)
         return sentry_sdk
 
     @classmethod
     def from_crawler(cls, crawler, dsn=None):
+        """
+        Create an instance of Errors from a Scrapy crawler.
+
+        Args:
+            crawler (scrapy.crawler.Crawler): The Scrapy crawler instance.
+            dsn (str): The Sentry DSN.
+
+        Returns:
+            Errors: The Errors instance.
+
+        Raises:
+            NotConfigured: If no SENTRY_DSN is configured.
+        """
         dsn = crawler.settings.get("SENTRY_DSN")
         if dsn is None:
             raise NotConfigured("No SENTRY_DSN configured")
@@ -25,6 +50,12 @@ class Errors(object):
         return extension
 
     def spider_error(self, failure):
+        """
+        Handle spider errors by capturing exceptions and logging them to Sentry.
+
+        Args:
+            failure (twisted.python.failure.Failure): The failure instance.
+        """
         traceback = StringIO()
         failure.printTraceback(file=traceback)
         self.client.capture_exception(failure.value)
