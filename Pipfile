@@ -17,6 +17,7 @@ black = "*"
 pytest = "*"
 tomli = "*"
 exceptiongroup = "*"
+pre-commit = "*"
 
 [scripts]
 black = "black ."
