@@ -1,5 +1,6 @@
 import logging
 from io import StringIO
+from typing import Optional
 
 from scrapy import signals
 from scrapy.exceptions import NotConfigured
@@ -10,10 +11,10 @@ import sentry_sdk
 class Errors(object):
     """Handles error reporting and capturing exceptions using Sentry."""
 
-    def __init__(self, dsn=None, **kwargs):
+    def __init__(self, dsn: Optional[str] = None, **kwargs: Optional[str]) -> None:
         self.client = self.get_client(dsn, **kwargs)
 
-    def get_client(self, dsn, **options):
+    def get_client(self, dsn: Optional[str], **options: Optional[str]) -> sentry_sdk:
         """
         Get the Sentry client.
 
@@ -28,7 +29,9 @@ class Errors(object):
         return sentry_sdk
 
     @classmethod
-    def from_crawler(cls, crawler, dsn=None):
+    def from_crawler(
+        cls, crawler: "scrapy.crawler.Crawler", dsn: Optional[str] = None
+    ) -> "Errors":
         """
         Create an instance of Errors from a Scrapy crawler.
 
@@ -49,7 +52,7 @@ class Errors(object):
         crawler.signals.connect(extension.spider_error, signal=signals.spider_error)
         return extension
 
-    def spider_error(self, failure):
+    def spider_error(self, failure: "twisted.python.failure.Failure") -> None:
         """
         Handle spider errors by capturing exceptions and logging them to Sentry.
 
