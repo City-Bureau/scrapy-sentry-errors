@@ -18,6 +18,7 @@ pytest = "*"
 tomli = "*"
 exceptiongroup = "*"
 pre-commit = "*"
+city-scrapers-sentry = {file = "."}
 
 [scripts]
 black = "black ."
