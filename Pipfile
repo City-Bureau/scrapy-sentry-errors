@@ -7,6 +7,9 @@ name = "pypi"
 scrapy = ">=2.5"
 sentry-sdk = ">=1.0"
 
+[requires]
+python_version = ">=3.8"
+
 [dev-packages]
 build = "*"
 twine = "*"
