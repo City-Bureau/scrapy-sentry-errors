@@ -46,6 +46,13 @@ bash ./scripts/dev_setup.sh
 pipenv run example
 ```
 
+## 🧪 Testing
+
+Run the tests with:
+```
+pipenv run test
+```
+
 ## Deployment
 
 1. Bump the version number in `pyproject.toml`
