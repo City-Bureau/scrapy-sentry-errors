@@ -1,6 +1,6 @@
 [project]
-name = "city-scrapers-sentry"
-version = "1.0.0-beta.1"
+name = "scrapy-sentry-errors"
+version = "1.0.0-beta.2"
 description = "Scrapy extension that logs errors to Sentry"
 authors = [
     {name = "City Bureau", email = "documenters@citybureau.org"}
@@ -9,7 +9,7 @@ dependencies = [
     'scrapy>=2.0', 
     'sentry-sdk>=1.0.0',
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 readme = "README.md"
 license = {text = "BSD"}
 classifiers=[
