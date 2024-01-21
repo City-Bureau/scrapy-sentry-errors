@@ -40,7 +40,7 @@ fi
 
 # Install project dependencies including dev dependencies
 printf "${GREEN}Installing project dependencies...${NC}\n"
-pipenv install --dev
+pipenv install --dev --python 3.8
 
 # Set up pre-commit hook
 printf "${GREEN}Setting up pre-commit hooks...${NC}\n"
