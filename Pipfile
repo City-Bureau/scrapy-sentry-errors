@@ -22,5 +22,7 @@ city-scrapers-sentry = {file = "."}
 
 [scripts]
 black = "black ."
-build = "sh scripts/build.sh"
-deploy = "sh scripts/deploy.sh"
+setup = "bash scripts/dev-setup.sh"
+example = "bash scripts/example.sh"
+build = "bash scripts/build.sh"
+deploy = "bash scripts/deploy.sh"

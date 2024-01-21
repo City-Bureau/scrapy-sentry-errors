@@ -1,15 +1,14 @@
 city-scrapers-sentry
 =============
 
-A Scrapy extension that logs spider errors to Sentry.
-
-This project began as a fork of [scrapy-sentry](https://github.com/llonchj/scrapy-sentry), which was developed by Jordi Llonch. We are grateful for his work and those of other contributors.
+A simple Scrapy extension that logs spider errors to your Sentry account.
 
 Note: while this extension captures errors from Scrapy spiders, it does not capture errors elsewhere in Scrapy's operation (e.g. the Scrapy pipeline).
 
 Requirements: 
 -----------
 
+* Python 3.8+
 * A [Sentry](http://www.getsentry.com/) account.
 * The [DSN](https://docs.sentry.io/product/sentry-basics/concepts/dsn-explainer/) for your Sentry project.
 
@@ -35,27 +34,24 @@ EXTENSIONS = {
 }
 ```
 
+Sentry spider errors will be logged to your Sentry account.
+
 Development
 -----
 
-1. Install [pipenv](https://pipenv.pypa.io/en/latest/) if you don't have it already.
-
-2. At the project root, create a .env file and include the following. Replace `<your-sentry-dsn>` with your Sentry DSN:
+1. Clone this repository.
+   
+2. Run the dev setup script and follow the prompts. This will create a virtual environment and a `.env` file with your Sentry DSN:
 ```
-SENTRY_DSN=<your-sentry-dsn>
-```
-3. Run the following command from the project root to activate pipenv's virtual environment and install project dependencies:
-```
-pipenv sync --dev
-```
-When activated, pipenv should load your SENTRY_DSN env var from the .env file.
-
-4. Enter the example_project directory:
-```
-cd example_project
+bash ./scripts/dev_setup.sh
 ```
 
-5. Simulate a failed spider run. The spider will log an error to your Sentry account:
+3. Simulate a failed spider run using the example Scrapy project in this repo:
 ```
-scrapy crawl example
+pipenv run example
 ```
+
+Acknowledgements
+-----
+
+This project began as a fork of [scrapy-sentry](https://github.com/llonchj/scrapy-sentry), which was developed by Jordi Llonch. We are grateful for his work and those of other contributors.

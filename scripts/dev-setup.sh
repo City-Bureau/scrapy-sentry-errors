@@ -46,9 +46,9 @@ pipenv install --dev
 printf "${GREEN}Setting up pre-commit hooks...${NC}\n"
 pipenv run pre-commit install
 
+# Final message
+printf "${GREEN}Project setup is complete! You can now start development.${NC}\n"
+
 # Start pipenv shell session
 printf "${GREEN}Starting pipenv shell session...${NC}\n"
 pipenv shell
-
-# Final message
-printf "${GREEN}Project setup is complete! You can now start development.${NC}\n"
