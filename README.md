@@ -1,26 +1,22 @@
-scrapy-sentry-errors
-=============
+# 🐞 scrapy-sentry-errors
 
-A simple Scrapy extension that logs spider errors to your Sentry account.
+A simple Scrapy extension that logs spider errors to your Sentry account, helping you monitor and fix issues with your Scrapy spiders efficiently. 🚀
 
-Note: while this extension captures errors from Scrapy spiders, it does not capture errors elsewhere in Scrapy's operation (e.g. the Scrapy pipeline).
+> **Note**: While this extension captures errors from Scrapy spiders, it does not capture errors elsewhere in Scrapy's operation (e.g., the Scrapy pipeline).
 
-Requirements: 
------------
+## 📋 Requirements 
 
-* Python 3.8+
-* A [Sentry](http://www.getsentry.com/) account.
-* The [DSN](https://docs.sentry.io/product/sentry-basics/concepts/dsn-explainer/) for your Sentry project.
+- Python 3.8+
+- A [Sentry](http://www.getsentry.com/) account.
+- The [DSN](https://docs.sentry.io/product/sentry-basics/concepts/dsn-explainer/) for your Sentry project.
 
-Installation
-------------
+## 🛠️ Installation 
 
-```
+```bash
 pip install city-scrapers-sentry
 ```
 
-Setup
------
+## 🏗️ Setup
 
 Add `SENTRY_DSN` and `scrapy_sentry_errors.extensions.Errors` extension to your Scrapy project's `settings.py` file:
 
@@ -36,8 +32,7 @@ EXTENSIONS = {
 
 Sentry spider errors will be logged to your Sentry account.
 
-Development
------
+## 💻 Development 
 
 1. Clone this repository.
    
@@ -51,7 +46,20 @@ bash ./scripts/dev_setup.sh
 pipenv run example
 ```
 
-Acknowledgements
------
+## Deployment
+
+1. Bump the version number in `pyproject.toml`
+   
+2. Create a new build with:
+```
+pipenv run build
+```
+
+3. Publish the build to PyPI with:
+```
+pipenv run deploy
+```
+
+## 🙏 Acknowledgements 
 
 This project began as a fork of [scrapy-sentry](https://github.com/llonchj/scrapy-sentry), which was developed by Jordi Llonch. We are grateful for his work and those of other contributors.
