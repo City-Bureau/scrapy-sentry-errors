@@ -53,7 +53,7 @@ Run the tests with:
 pipenv run test
 ```
 
-## Deployment
+## 📦 Publishing
 
 1. Bump the version number in `pyproject.toml`
    
@@ -64,7 +64,7 @@ pipenv run build
 
 3. Publish the build to PyPI with:
 ```
-pipenv run deploy
+pipenv run publish
 ```
 
 ## 🤝 Contributing
