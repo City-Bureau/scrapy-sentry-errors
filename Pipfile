@@ -18,7 +18,7 @@ pytest = "*"
 tomli = "*"
 exceptiongroup = "*"
 pre-commit = "*"
-city-scrapers-sentry = {file = "."}
+scrapy-sentry-errors = {file = "."}
 
 [scripts]
 black = "black ."
@@ -26,3 +26,5 @@ setup = "bash scripts/dev-setup.sh"
 example = "bash scripts/example.sh"
 build = "bash scripts/build.sh"
 deploy = "bash scripts/deploy.sh"
+test = "pytest"
+

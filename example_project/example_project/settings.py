@@ -22,7 +22,7 @@ if not os.environ.get("SENTRY_DSN"):
 
 SENTRY_DSN = os.environ["SENTRY_DSN"]
 EXTENSIONS = {
-    "city_scrapers_sentry.extensions.Errors": 10,
+    "scrapy_sentry_errors.extensions.Errors": 10,
 }
 
 SPIDER_MODULES = ["example_project.spiders"]

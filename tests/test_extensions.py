@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock, patch
 import pytest
 from scrapy.exceptions import NotConfigured
-from src.city_scrapers_sentry.extensions import Errors
+from src.scrapy_sentry_errors.extensions import Errors
 
 
 @pytest.fixture
@@ -22,7 +22,7 @@ def test_initialization_fails_without_dsn(crawler_mock):
         Errors.from_crawler(crawler_mock)
 
 
-@patch("src.city_scrapers_sentry.extensions.sentry_sdk")
+@patch("src.scrapy_sentry_errors.extensions.sentry_sdk")
 def test_error_capturing_on_spider_error(mock_sentry_sdk, crawler_mock):
     # Initialize the extension with mocked crawler
     extension = Errors.from_crawler(crawler_mock)

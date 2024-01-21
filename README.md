@@ -1,4 +1,4 @@
-city-scrapers-sentry
+scrapy-sentry-errors
 =============
 
 A simple Scrapy extension that logs spider errors to your Sentry account.
@@ -22,7 +22,7 @@ pip install city-scrapers-sentry
 Setup
 -----
 
-Add `SENTRY_DSN` and `city_scrapers_sentry.extensions.Errors` extension to your Scrapy project's `settings.py` file:
+Add `SENTRY_DSN` and `scrapy_sentry_errors.extensions.Errors` extension to your Scrapy project's `settings.py` file:
 
 Example:
 
@@ -30,7 +30,7 @@ Example:
 # sentry dsn
 SENTRY_DSN = 'http://public:secret@example.com/1'
 EXTENSIONS = {
-    "city_scrapers_sentry.extensions.Errors": 10,
+    "scrapy_sentry_errors.extensions.Errors": 10,
 }
 ```
 
