@@ -67,6 +67,15 @@ pipenv run build
 pipenv run deploy
 ```
 
+## 🤝 Contributing
+
+We welcome contributions of all kinds from anyone. Here are some ways you can contribute:
+
+- **Reporting Bugs**: If you find a bug, please report it by opening an issue. Be sure to provide a detailed description of the bug and, if possible, steps to reproduce it.
+- **Suggesting Enhancements**: Have an idea for a new feature or think something could be improved? Let us know by opening an issue.
+- **Code Contributions**: Feel free to fork the repository and submit pull requests. Whether it's fixing a bug, adding a feature, or improving documentation, your help is welcome.
+
+
 ## 🙏 Acknowledgements 
 
 This project began as a fork of [scrapy-sentry](https://github.com/llonchj/scrapy-sentry), which was developed by Jordi Llonch. We are grateful for his work and those of other contributors.
