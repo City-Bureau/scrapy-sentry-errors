@@ -1,6 +1,6 @@
 import logging
 from io import StringIO
-from typing import Optional
+from typing import Optional, Dict, Any
 
 from scrapy import signals
 from scrapy.exceptions import NotConfigured
@@ -11,10 +11,14 @@ import sentry_sdk
 class Errors(object):
     """Handles error reporting and capturing exceptions using Sentry."""
 
-    def __init__(self, dsn: Optional[str] = None, **kwargs: Optional[str]) -> None:
+    def __init__(
+        self, dsn: Optional[str] = None, **kwargs: Optional[Dict[str, Any]]
+    ) -> None:
         self.client = self.get_client(dsn, **kwargs)
 
-    def get_client(self, dsn: Optional[str], **options: Optional[str]) -> sentry_sdk:
+    def get_client(
+        self, dsn: Optional[str], **options: Optional[Dict[str, Any]]
+    ) -> sentry_sdk:
         """
         Get the Sentry client.
 
