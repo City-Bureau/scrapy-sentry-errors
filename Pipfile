@@ -17,8 +17,8 @@ black = "*"
 pytest = "*"
 tomli = "*"
 exceptiongroup = "*"
-pre-commit = "*"
 scrapy-sentry-errors = {file = "."}
+pre-commit = "*"
 
 [scripts]
 black = "black ."
@@ -27,4 +27,3 @@ example = "bash scripts/example.sh"
 build = "bash scripts/build.sh"
 deploy = "bash scripts/deploy.sh"
 test = "pytest"
-
