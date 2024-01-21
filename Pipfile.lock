@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "11a239295cf243b0d2cc203eb8498516031f9e8cda0c5cfbad6c813eb9be8b90"
+            "sha256": "a53c534f4aa70be5a169f9912ceb6e2a1ec5dc8bdd4f46ba86adb1fab9ec9faa"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -810,10 +810,6 @@
             "markers": "python_full_version >= '3.7.0'",
             "version": "==3.3.2"
         },
-        "city-scrapers-sentry": {
-            "file": ".",
-            "markers": "python_version >= '3.9'"
-        },
         "click": {
             "hashes": [
                 "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28",
@@ -1379,6 +1375,9 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==2.11.0"
+        },
+        "scrapy-sentry-errors": {
+            "file": "."
         },
         "sentry-sdk": {
             "hashes": [
