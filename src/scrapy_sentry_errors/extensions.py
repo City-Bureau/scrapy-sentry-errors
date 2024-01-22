@@ -3,7 +3,7 @@ from io import StringIO
 from typing import Optional, Dict, Any
 
 from scrapy import signals
-from scrapy.exceptions import NotConfigured
+from scrapy.exceptions import CloseSpider
 
 import sentry_sdk
 
@@ -47,13 +47,17 @@ class Errors(object):
             Errors: The Errors instance.
 
         Raises:
-            NotConfigured: If no SENTRY_DSN is configured.
+            CloseSpider: If no SENTRY_DSN is configured.
         """
         dsn = crawler.settings.get("SENTRY_DSN")
         if dsn is None:
-            raise NotConfigured("No SENTRY_DSN configured")
+            raise CloseSpider(
+                reason="SENTRY_DSN must be configured to enable scrapy-sentry-errors extension"
+            )
+
         extension = cls(dsn=dsn)
         crawler.signals.connect(extension.spider_error, signal=signals.spider_error)
+        logging.log(logging.INFO, "Scrapy integration active")
         return extension
 
     def spider_error(self, failure: "twisted.python.failure.Failure") -> None:
