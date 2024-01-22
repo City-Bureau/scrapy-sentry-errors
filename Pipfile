@@ -17,13 +17,15 @@ black = "*"
 pytest = "*"
 tomli = "*"
 exceptiongroup = "*"
-scrapy-sentry-errors = {file = "."}
 pre-commit = "*"
+scrapy-sentry-errors = {file = ".", editable = true}
+flake8 = "*"
+isort = "*"
 
 [scripts]
 black = "black ."
 setup = "bash scripts/dev-setup.sh"
 example = "bash scripts/example.sh"
 build = "bash scripts/build.sh"
-deploy = "bash scripts/deploy.sh"
+publish = "bash scripts/publish.sh"
 test = "pytest"

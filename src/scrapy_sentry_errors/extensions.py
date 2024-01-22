@@ -1,11 +1,12 @@
 import logging
 from io import StringIO
-from typing import Optional, Dict, Any
-
-from scrapy import signals
-from scrapy.exceptions import NotConfigured
+from typing import Any, Dict, Optional
 
 import sentry_sdk
+from scrapy import signals
+from scrapy.crawler import Crawler
+from scrapy.exceptions import CloseSpider
+from twisted.python.failure import Failure
 
 
 class Errors(object):
@@ -34,8 +35,8 @@ class Errors(object):
 
     @classmethod
     def from_crawler(
-        cls, crawler: "scrapy.crawler.Crawler", dsn: Optional[str] = None
-    ) -> "Errors":
+        cls, crawler: Crawler, dsn: Optional[str] = None
+    ) -> "Errors":  # noqa
         """
         Create an instance of Errors from a Scrapy crawler.
 
@@ -47,16 +48,22 @@ class Errors(object):
             Errors: The Errors instance.
 
         Raises:
-            NotConfigured: If no SENTRY_DSN is configured.
+            CloseSpider: If no SENTRY_DSN is configured.
         """
         dsn = crawler.settings.get("SENTRY_DSN")
         if dsn is None:
-            raise NotConfigured("No SENTRY_DSN configured")
+            logging.log(logging.ERROR, "SENTRY_DSN is not configured")
+            raise CloseSpider(
+                reason="SENTRY_DSN must be configured to enable \
+                    scrapy-sentry-errors extension"
+            )
+
         extension = cls(dsn=dsn)
         crawler.signals.connect(extension.spider_error, signal=signals.spider_error)
+        logging.log(logging.INFO, "Scrapy integration active")
         return extension
 
-    def spider_error(self, failure: "twisted.python.failure.Failure") -> None:
+    def spider_error(self, failure: Failure) -> None:
         """
         Handle spider errors by capturing exceptions and logging them to Sentry.
 
@@ -66,4 +73,6 @@ class Errors(object):
         traceback = StringIO()
         failure.printTraceback(file=traceback)
         self.client.capture_exception(failure.value)
-        logging.log(logging.WARNING, "Sentry Exception captured")
+        logging.log(
+            logging.INFO, "Exception captured by scrapy-sentry-errors extension"
+        )
