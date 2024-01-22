@@ -54,7 +54,8 @@ class Errors(object):
         dsn = crawler.settings.get("SENTRY_DSN")
         if dsn is None:
             raise CloseSpider(
-                reason="SENTRY_DSN must be configured to enable scrapy-sentry-errors extension"
+                reason="SENTRY_DSN must be configured to enable \
+                    scrapy-sentry-errors extension"
             )
 
         extension = cls(dsn=dsn)
