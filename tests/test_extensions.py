@@ -1,6 +1,6 @@
 from unittest.mock import MagicMock, patch
 import pytest
-from scrapy.exceptions import NotConfigured
+from scrapy.exceptions import CloseSpider
 from src.scrapy_sentry_errors.extensions import Errors
 
 
@@ -18,7 +18,7 @@ def test_initialization_with_valid_dsn(crawler_mock):
 
 def test_initialization_fails_without_dsn(crawler_mock):
     crawler_mock.settings = {"SENTRY_DSN": None}
-    with pytest.raises(NotConfigured):
+    with pytest.raises(CloseSpider):
         Errors.from_crawler(crawler_mock)
 
 
