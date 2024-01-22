@@ -27,6 +27,9 @@ jobs:
     - name: Check code formatting with black
       run: |
         pipenv run black --check .
+    
+    - name: Check imports with isort
+      run: pipenv run isort . --check-only
 
     - name: Lint with flake8
       run: pipenv run flake8 src/
