@@ -3,7 +3,9 @@ from io import StringIO
 from typing import Optional, Dict, Any
 
 from scrapy import signals
+from scrapy.crawler import Crawler
 from scrapy.exceptions import CloseSpider
+from twisted.python.failure import Failure
 
 import sentry_sdk
 
@@ -34,8 +36,8 @@ class Errors(object):
 
     @classmethod
     def from_crawler(
-        cls, crawler: "scrapy.crawler.Crawler", dsn: Optional[str] = None
-    ) -> "Errors":
+        cls, crawler: Crawler, dsn: Optional[str] = None
+    ) -> "Errors":  # noqa
         """
         Create an instance of Errors from a Scrapy crawler.
 
@@ -60,7 +62,7 @@ class Errors(object):
         logging.log(logging.INFO, "Scrapy integration active")
         return extension
 
-    def spider_error(self, failure: "twisted.python.failure.Failure") -> None:
+    def spider_error(self, failure: Failure) -> None:
         """
         Handle spider errors by capturing exceptions and logging them to Sentry.
 
