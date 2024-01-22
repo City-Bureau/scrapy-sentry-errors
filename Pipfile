@@ -20,6 +20,7 @@ exceptiongroup = "*"
 pre-commit = "*"
 scrapy-sentry-errors = {file = ".", editable = true}
 flake8 = "*"
+isort = "*"
 
 [scripts]
 black = "black ."
