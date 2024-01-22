@@ -6,7 +6,7 @@ A simple Scrapy extension that logs spider errors to your Sentry account, helpin
 
 ## 📋 Requirements 
 
-- Python 3.8+
+- Python 3.8 or higher
 - A [Sentry](http://www.getsentry.com/) account.
 - The [DSN](https://docs.sentry.io/product/sentry-basics/concepts/dsn-explainer/) for your Sentry project.
 
