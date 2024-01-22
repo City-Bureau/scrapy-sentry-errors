@@ -53,6 +53,7 @@ class Errors(object):
         """
         dsn = crawler.settings.get("SENTRY_DSN")
         if dsn is None:
+            logging.log(logging.ERROR, "SENTRY_DSN is not configured")
             raise CloseSpider(
                 reason="SENTRY_DSN must be configured to enable \
                     scrapy-sentry-errors extension"
