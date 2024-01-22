@@ -1,13 +1,12 @@
 import logging
 from io import StringIO
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
 
+import sentry_sdk
 from scrapy import signals
 from scrapy.crawler import Crawler
 from scrapy.exceptions import CloseSpider
 from twisted.python.failure import Failure
-
-import sentry_sdk
 
 
 class Errors(object):

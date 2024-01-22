@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
+
 import pytest
 from scrapy.exceptions import CloseSpider
+
 from src.scrapy_sentry_errors.extensions import Errors
 
 
