@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a53c534f4aa70be5a169f9912ceb6e2a1ec5dc8bdd4f46ba86adb1fab9ec9faa"
+            "sha256": "8b9f7951cb587c12f71d76072fc89849af3db6e02b235fd8bd3e0ae7f6c6a5b4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -923,7 +923,7 @@
                 "sha256:4805911c3a4ec7c3966410053e9ec6a1fecd629117df5adee56dfc9432a1081e",
                 "sha256:f238736bb06590ae52ac1fab06a3a9ef1d8dce2b7a35b5ab329371d6c8f5d2cc"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version >= '3.8'",
             "version": "==7.0.1"
         },
         "importlib-resources": {
@@ -1385,6 +1385,7 @@
             "version": "==2.11.0"
         },
         "scrapy-sentry-errors": {
+            "editable": true,
             "file": "."
         },
         "sentry-sdk": {
