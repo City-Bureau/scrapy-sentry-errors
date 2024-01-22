@@ -70,4 +70,6 @@ class Errors(object):
         traceback = StringIO()
         failure.printTraceback(file=traceback)
         self.client.capture_exception(failure.value)
-        logging.log(logging.WARNING, "Sentry Exception captured")
+        logging.log(
+            logging.INFO, "Exception captured by scrapy-sentry-errors extension"
+        )
