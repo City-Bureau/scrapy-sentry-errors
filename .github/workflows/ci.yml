@@ -28,6 +28,9 @@ jobs:
       run: |
         pipenv run black --check .
 
+    - name: Lint with flake8
+      run: pipenv run flake8 src/
+
     - name: Run pytest
       run: |
         pipenv run pytest
